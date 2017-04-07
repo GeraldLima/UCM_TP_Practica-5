@@ -1,0 +1,37 @@
+Cambios de la práctica:
+
+30-Abril
+creación del paquete: gui.
+clases:
+	SwingView
+	RectBoardSwingView
+	WolfAndSheepPlayer
+	WolfAndSheepSwingView
+###################
+ 01-Abril
+ Clases:
+ 	GameView
+ 	GameViewCtrl
+ 	GameWindow
+ 	RectBoardGameView
+#####################
+02-Abril
+creación del paquete: control
+Clases:
+	ConsoleController
+	GameController
+	GameViewCtrl
+	
+	MiBoton
+	TableroDeBotones
+	WasView
+	TttView
+	ConsoleView
+Dependecias de clases...
+
+
+Las siguientes clases, al final creo q no hacen falta....Don't know yet:
+	SwingView
+	RectBoardSwingView
+	WolfAndSheepPlayer
+	WolfAndSheepSwingView
