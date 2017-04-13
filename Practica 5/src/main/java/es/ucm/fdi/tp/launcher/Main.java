@@ -44,7 +44,7 @@ public class Main {
 	}
 	
 	
-enum PlayerMode{
+	enum PlayerMode{
 		
 		CONSOLE("console"), RANDOM("rand"), INTELLIGENT("smart");
 		
@@ -131,7 +131,6 @@ enum PlayerMode{
 		}
 		
 		else
-			
 			return null;
 	}
 	

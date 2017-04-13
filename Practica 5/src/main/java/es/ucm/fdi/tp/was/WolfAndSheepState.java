@@ -20,6 +20,8 @@ public class WolfAndSheepState extends GameState<WolfAndSheepState, WolfAndSheep
 	final static int CASILLA_ROJA = -2;	
 	final static int WOLF = 0;
 	final static int SHEEP = 1;
+	//TODO ANIADIDO
+	private int[] players; // de alguna forma tenemos que tener la lista de jugadores (la lista se crea en el "MAIN()" )
 	
 	public WolfAndSheepState(int dimension) {
 		
@@ -56,87 +58,86 @@ public class WolfAndSheepState extends GameState<WolfAndSheepState, WolfAndSheep
 	public int siguienteTurno(){
 		return  (turno + 1) % 2;
 	}
-/**
- * Método que te devuelve una casilla
- * @param row, la fila
- * @param col, la columna
- * @return devuelve la casilla dentro del tablero
- */
-public int at(int row, int col) {
-	 return board[row][col];
-}
-
-/**
- * 
- * @param action
- * @return
- */
-public boolean isValid(TttAction action) {
-      if (isFinished()) {
-          return false;
-       }
-        return at(action.getRow(), action.getCol()) == EMPTY;
-  }
+	/**
+	 * Método que te devuelve una casilla
+	 * @param row, la fila
+	 * @param col, la columna
+	 * @return devuelve la casilla dentro del tablero
+	 */
+	public int at(int row, int col) {
+		return board[row][col];
+	}
 	
-
-public void inicializa(){
-	
-	for(int i = 0; i < dim; i ++){ //filas
-		for(int j = 0; j < dim; j++){//columnas
-			if(i % 2 == 0){ //si la fila es par
-				if(j % 2 == 0){//si la columna es par
-					board[i][j] = CASILLA_ROJA;
-				}
-				else{//si la columna es impar
-					board[i][j] = EMPTY;
-				}
-			}
-			else{//si la fila es impar
-				if(j  % 2 == 0){
-					board[i][j] = EMPTY;
-				}
-				else{
-					board[i][j] = CASILLA_ROJA;
-				}
-			}
-			if(i == 0 && j % 2 == 1)
-			board[0][j] = SHEEP;
-			
+	/**
+	 * 
+	 * @param action
+	 * @return
+	 */
+	public boolean isValid(TttAction action) {
+		if (isFinished()) {
+			return false;
 		}
-		
-		board[dim - 1][0] = WOLF;		
+		return at(action.getRow(), action.getCol()) == EMPTY;
 	}		
-}
-/*public void inicializa(){
 	
-	for(int i = 0; i < dim; i ++){ //filas
-		for(int j = 0; j < dim; j++){//columnas
-			if(i % 2 == 0){ //si la fila es par
-				if(j % 2 == 0){//si la columna es par
-					board[i][j] = CASILLA_ROJA;
-				}
-				else{//si la columna es impar
-					board[i][j] = EMPTY;
-				}
-			}
-			else{//si la fila es impar
-				if(j  % 2 == 0){
-					board[i][j] = EMPTY;
-				}
-				else{
-					board[i][j] = CASILLA_ROJA;
-				}
-			}
-			if(i == dim-2 && j>1 && j % 2 == 1)
-				board[dim-2][j] = SHEEP;
-			board[dim-4][1] = SHEEP;
-			
-		}
+	public void inicializa(){
 		
-		board[dim - 1][0] = WOLF;
-	}		
-}
-*/
+		for(int i = 0; i < dim; i ++){ //filas
+			for(int j = 0; j < dim; j++){//columnas
+				if(i % 2 == 0){ //si la fila es par
+					if(j % 2 == 0){//si la columna es par
+						board[i][j] = CASILLA_ROJA;
+					}
+					else{//si la columna es impar
+						board[i][j] = EMPTY;
+					}
+				}
+				else{//si la fila es impar
+					if(j  % 2 == 0){
+						board[i][j] = EMPTY;
+					}
+					else{
+						board[i][j] = CASILLA_ROJA;
+					}
+				}
+				if(i == 0 && j % 2 == 1)
+				board[0][j] = SHEEP;
+				
+			}
+			
+			board[dim - 1][0] = WOLF;		
+		}		
+	}
+	/*public void inicializa(){
+		
+		for(int i = 0; i < dim; i ++){ //filas
+			for(int j = 0; j < dim; j++){//columnas
+				if(i % 2 == 0){ //si la fila es par
+					if(j % 2 == 0){//si la columna es par
+						board[i][j] = CASILLA_ROJA;
+					}
+					else{//si la columna es impar
+						board[i][j] = EMPTY;
+					}
+				}
+				else{//si la fila es impar
+					if(j  % 2 == 0){
+						board[i][j] = EMPTY;
+					}
+					else{
+						board[i][j] = CASILLA_ROJA;
+					}
+				}
+				if(i == dim-2 && j>1 && j % 2 == 1)
+					board[dim-2][j] = SHEEP;
+				board[dim-4][1] = SHEEP;
+				
+			}
+			
+			board[dim - 1][0] = WOLF;
+		}		
+	}
+	*/
 
 	
 	
@@ -148,7 +149,6 @@ public void inicializa(){
 	}
 	
 	
-	//TODO 
 	public boolean ganadorLobo(int[][] board, int player) {
 	    	
 		boolean hayGanador = false;
@@ -243,6 +243,7 @@ public void inicializa(){
 			fil++;
 		}
 	}
+	
 	private void compruebaMovimientoSheep(ArrayList<WolfAndSheepAction> moves, int player, int posFil, int posCol){
 		int fil = posFil+1;
 		if (fil >= dim)
@@ -258,10 +259,8 @@ public void inicializa(){
 				}			
 				col++;
 		}
-	}
-	
-	
-	//TODO completada
+	}	
+
 	@Override
 	public List<WolfAndSheepAction> validActions(int playerNumber) {
 		
@@ -290,8 +289,7 @@ public void inicializa(){
 	}
 	
 	@Override
-	public int getWinner() {
-	
+	public int getWinner() {	
 		return winner;
 	}
 	
@@ -303,10 +301,8 @@ public void inicializa(){
 			copy[i] = board[i].clone();
 		
     	return copy;
-    }
-		
-	
-	//TODO 
+    }		
+
 	public String toString() {
 			 
 	  StringBuilder sb = new StringBuilder();
@@ -321,6 +317,23 @@ public void inicializa(){
 	    }
 	    	        
 	    return sb.toString();
+	}
+	
+	//TODO ANIADIDO *********************/
+	public static int getEmpty() {
+		return EMPTY;
+	}
+
+	public static int getCasillaRoja() {
+		return CASILLA_ROJA;
+	}
+
+	public static int getWolf() {
+		return WOLF;
+	}
+
+	public static int getSheep() {
+		return SHEEP;
 	}
 	
 	

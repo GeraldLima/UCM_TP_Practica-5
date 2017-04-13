@@ -7,14 +7,16 @@ clases:
 	RectBoardSwingView
 	WolfAndSheepPlayer
 	WolfAndSheepSwingView
-###################
+	
+######################################
  01-Abril
  Clases:
  	GameView
  	GameViewCtrl
  	GameWindow
  	RectBoardGameView
-#####################
+ 	
+########################################
 02-Abril
 creación del paquete: control
 Clases:
@@ -29,9 +31,12 @@ Clases:
 	ConsoleView
 Dependecias de clases...
 
-
 Las siguientes clases, al final creo q no hacen falta....Don't know yet:
 	SwingView
 	RectBoardSwingView
 	WolfAndSheepPlayer
 	WolfAndSheepSwingView
+	
+#######################################
+13-April
+He avanzado un poco más con la parte de la interfaz GUI
