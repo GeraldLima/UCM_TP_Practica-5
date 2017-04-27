@@ -10,5 +10,9 @@ public abstract class GameView< S extends GameState<S,A>, A extends GameAction<S
 	public abstract void update(S state);
 	public abstract void showInfoMessage(String msg);
 	public abstract void setGameVewCtrl(GameViewCtrl <S,A> guiCtrl);
+	
+	//TODO PUEDE QUE AQUÍ SEA LO MEJOR PARA TODAS LAS COMPONENTES VISUALES!!!
+	//así podria hacerme con los atributos principales de GameWindow
+	
 
 }
