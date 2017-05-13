@@ -48,7 +48,7 @@ public class ColorChooser extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				color = null;
+				color = null;//TODO
 				closeDialog();
 			}
 		});
@@ -57,6 +57,7 @@ public class ColorChooser extends JDialog {
 		// set action listener on the button
 		getContentPane().add(buttonPane, BorderLayout.PAGE_END);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		setVisible(true);
 		pack();
 	}
 

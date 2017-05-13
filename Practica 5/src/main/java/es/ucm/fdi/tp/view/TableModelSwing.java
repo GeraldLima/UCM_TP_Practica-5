@@ -1,4 +1,4 @@
-package es.ucm.fdi.tp.gui;
+package es.ucm.fdi.tp.view;
 
 import javax.swing.table.AbstractTableModel;
 
